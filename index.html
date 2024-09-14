@@ -9,35 +9,58 @@
 <body>
     <section>
         <ul>
-            <li class="list" data-filter="All">All</li>
-            <li class="list" data-filter="Mobile">Mobile</li>
-            <li class="list" data-filter="Camera">Camera</li>
-            <li class="list" data-filter="Watch">Watch</li>
-            <li class="list" data-filter="Shoe">Shoe</li>
-            <li class="list" data-filter="Headphone">Headphone</li>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="mobile">Mobile</li>
+            <li class="list" data-filter="camera">Camera</li>
+            <li class="list" data-filter="watch">Watch</li>
+            <li class="list" data-filter="shoe">Shoe</li>
+            <li class="list" data-filter="headphone">Headphone</li>
         </ul>
         <div class="products">
             <div class="itemBox mobile"><img src="images/mobile1.jpg" alt=""></div>
+            <div class="itemBox camera"><img src="images/camera3.jpg" alt=""></div>
             <div class="itemBox mobile"><img src="images/mobile2.jpg" alt=""></div>
-            <div class="itemBox mobile"><img src="images/mobile3.jpg" alt=""></div>
-            <div class="itemBox mobile"><img src="images/mobile4.jpg" alt=""></div>
-            <div class="itemBox mobile"><img src="images/mobile5.jpg" alt=""></div>
             <div class="itemBox shoe"><img src="images/shoe1.jpg" alt=""></div>
             <div class="itemBox shoe"><img src="images/shoe2.jpg" alt=""></div>
-            <div class="itemBox shoe"><img src="images/shoe3.jpg" alt=""></div>
-            <div class="itemBox shoe"><img src="images/shoe4.jpg" alt=""></div>
             <div class="itemBox camera"><img src="images/camera1.jpg" alt=""></div>
+            <div class="itemBox watch"><img src="images/watch3.jpg" alt=""></div>
+            <div class="itemBox watch"><img src="images/watch4.jpg" alt=""></div>
             <div class="itemBox camera"><img src="images/camera2.jpg" alt=""></div>
-            <div class="itemBox camera"><img src="images/camera3.jpg" alt=""></div>
+            <div class="itemBox mobile"><img src="images/mobile3.jpg" alt=""></div>
+            <div class="itemBox mobile"><img src="images/mobile4.jpg" alt=""></div>
             <div class="itemBox headphone"><img src="images/headphone1.jpg" alt=""></div>
             <div class="itemBox headphone"><img src="images/headphone2.jpg" alt=""></div>
+            <div class="itemBox shoe"><img src="images/shoe3.jpg" alt=""></div>
+            <div class="itemBox shoe"><img src="images/shoe4.jpg" alt=""></div>
             <div class="itemBox headphone"><img src="images/headphone3.jpg" alt=""></div>
             <div class="itemBox headphone"><img src="images/headphone4.jpg" alt=""></div>
             <div class="itemBox watch"><img src="images/watch1.jpg" alt=""></div>
             <div class="itemBox watch"><img src="images/watch2.jpg" alt=""></div>
-            <div class="itemBox watch"><img src="images/watch3.jpg" alt=""></div>
-            <div class="itemBox watch"><img src="images/watch4.jpg" alt=""></div>
+            <div class="itemBox mobile"><img src="images/mobile5.jpg" alt=""></div>
         </div>
     </section>
+
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.list').click(function(){
+                const value = $(this).attr('data-filter');
+                if(value == 'all') {
+                    $('.itemBox').show('1000');
+                }
+                else{
+                    $('.itemBox').not('.'+value).hide('1000');
+                    $('.itemBox').filter('.'+value).show('1000');
+                }
+            })
+            $('.list').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        })
+    </script>
 </body>
 </html>
